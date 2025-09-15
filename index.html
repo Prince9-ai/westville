@@ -5,345 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Westville Int'l School</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    /* ----------------- GLOBAL ----------------- */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: "Poppins", sans-serif;
-      color: #333;
-      background: #fffaf7;
-    }
-
-    h1, h2, h3 {
-      font-weight: 700;
-      line-height: 1.3;
-    }
-
-    p {
-      line-height: 1.7;
-      margin-bottom: 1rem;
-    }
-
-    a {
-      text-decoration: none;
-      transition: 0.3s;
-    }
-
-    section {
-      padding: 80px 10%;
-    }
-
-    /* ----------------- HEADER ----------------- */
-    header {
-      background: #ffffff;
-      color: #333;
-      padding: 20px 10%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      border-bottom: 1px solid #eee;
-    }
-
-    header h1 {
-      font-size: 1.6rem;
-      color: #d35400; /* orange */
-    }
-
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 25px;
-    }
-
-    nav ul li a {
-      font-weight: 600;
-      color: #333;
-    }
-
-    nav ul li a:hover {
-      color: #d35400;
-    }
-
-    /* Hamburger */
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-      gap: 5px;
-    }
-
-    .menu-toggle span {
-      width: 25px;
-      height: 3px;
-      background: #333;
-      border-radius: 3px;
-    }
-
-    /* ----------------- HERO ----------------- */
-    .hero {
-      height: 85vh;
-      background: linear-gradient(rgba(211, 84, 0, 0.7), rgba(160, 82, 45, 0.7)),
-                  url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1400&q=80')
-                  center/cover no-repeat;
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 20px;
-    }
-
-    .hero h2 {
-      font-size: 3.2rem;
-      margin-bottom: 20px;
-    }
-
-    .hero p {
-      font-size: 1.3rem;
-      margin-bottom: 30px;
-    }
-
-    .btn-primary {
-      padding: 14px 30px;
-      background: #d35400;
-      color: white;
-      border-radius: 50px;
-      font-weight: 600;
-      box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
-    }
-
-    .btn-primary:hover {
-      background: #a84300;
-    }
-
-    /* ----------------- ABOUT ----------------- */
-    .about {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 50px;
-      align-items: center;
-    }
-
-    .about img {
-      width: 100%;
-      border-radius: 15px;
-      box-shadow: 0px 6px 15px rgba(0,0,0,0.1);
-    }
-
-    /* ----------------- ACADEMICS ----------------- */
-    #academics {
-      text-align: center;
-    }
-
-    .card-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.8rem;
-      margin-top: 2rem;
-    }
-
-    .card {
-      background: #fff;
-      padding: 30px 20px;
-      border-radius: 12px;
-      box-shadow: 0px 4px 12px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      text-align: center;
-    }
-
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0px 6px 18px rgba(0,0,0,0.15);
-    }
-
-    .card .icon-circle {
-      width: 70px;
-      height: 70px;
-      margin: 0 auto 15px;
-      border-radius: 50%;
-      background: #d35400;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 1.8rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    }
-
-    .card h3 {
-      color: #a0522d;
-      margin-bottom: 10px;
-      font-size: 1.2rem;
-    }
-
-    .card p {
-      font-size: 0.95rem;
-      color: #555;
-    }
-
-    /* ----------------- ADMISSIONS ----------------- */
-    .admissions {
-      text-align: center;
-      background: #fff3e6;
-      border-radius: 12px;
-      padding: 60px;
-    }
-
-    .admissions p {
-      max-width: 700px;
-      margin: 20px auto;
-    }
-
-    /* ----------------- CONTACT ----------------- */
-    .contact form {
-      max-width: 650px;
-      margin: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-    }
-
-    .contact input, .contact textarea {
-      padding: 15px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-family: inherit;
-    }
-
-    .contact button {
-      padding: 15px;
-      border: none;
-      background: #d35400;
-      color: white;
-      font-size: 1rem;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: 600;
-    }
-
-    .contact button:hover {
-      background: #a84300;
-    }
-
-    /* Footer */
-    footer {
-      background: #a0522d;
-      color: white;
-      text-align: center;
-      padding: 2rem 1rem;
-    }
-
-    .footer-links {
-      margin: 1rem 0;
-    }
-
-    .footer-links a {
-      color: white;
-      margin: 0 10px;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-
-    .footer-links a:hover {
-      color: #ffa86f;
-    }
-
-    .social-icons i {
-      margin: 0 8px;
-      font-size: 1.2rem;
-      cursor: pointer;
-      transition: color 0.3s;
-    }
-
-    .social-icons i:hover {
-      color: #ffa86f;
-    }
-
-    /* Scrolling Gallery */
-    .scroll-gallery {
-      overflow: hidden;
-      white-space: nowrap;
-      margin-top: 2rem;
-    }
-
-    .scroll-gallery img {
-      width: 300px;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 12px;
-      margin: 0 10px;
-      display: inline-block;
-      animation: scroll-left 20s linear infinite;
-    }
-
-    @keyframes scroll-left {
-      0% { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
-    }
-
-    /* ----------------- RESPONSIVE ----------------- */
-    @media (max-width: 900px) {
-      .about {
-        grid-template-columns: 1fr;
-      }
-      .hero h2 {
-        font-size: 2.2rem;
-      }
-    }
-
-    @media (max-width: 768px) {
-      nav ul {
-        position: absolute;
-        top: 70px;
-        right: 10%;
-        background: white;
-        flex-direction: column;
-        gap: 15px;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
-        display: none;
-      }
-
-      nav ul.active {
-        display: flex;
-      }
-
-      .menu-toggle {
-        display: flex;
-      }
-    }
-  </style>
 </head>
+
 <body>
   <!-- HEADER -->
-  <header>
-    <h1>Westville Int'l School</h1>
-    <nav>
-      <ul id="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#academics">Academics</a></li>
-        <li><a href="#admissions">Admissions</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <div class="menu-toggle" id="menu-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </nav>
-  </header>
+<header>
+  <div class="logo">
+    <img src="images/logo.jpg" alt="Westville Logo">
+    <span><span class="school-name">Westville</span> <span class="school-sub">Int'l School</span></span>
+  </div>
+  <nav>
+    <ul id="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#academics">Academics</a></li>
+      <li><a href="#admissions">Admissions</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="menu-toggle" id="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+</header>
+
+
 
   <!-- HERO -->
   <section class="hero">
@@ -354,22 +42,86 @@
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section id="about" class="about">
-    <div>
-      <h2>About Westville</h2>
+<!-- PHOTO STORIES -->
+<section class="photo-stories">
+  <h2>Life at Westville</h2>
+
+  <!-- Career Day -->
+  <div class="story-block">
+    <div class="story-text">
+      <h3>Career Day at Westville</h3>
       <p>
-        Westville Int’l School is dedicated to inspiring students to achieve academic excellence, 
-        develop strong character, and embrace global citizenship. With a rich history of innovation 
-        and tradition, we offer a nurturing environment that empowers every student to thrive.
-      </p>
-      <p>
-        Our passionate educators and vibrant community ensure that every child feels valued, supported, 
-        and challenged to reach their fullest potential.
+        Our Career Day inspires students to explore diverse career paths and dream beyond boundaries. 
+        Professionals from different fields guide students into envisioning their future with clarity and purpose.
       </p>
     </div>
-    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1200&q=80" alt="School campus">
-  </section>
+    <div class="story-images">
+      <img src="images/cdhp.jpg" alt="Career Day photo 1">
+      <img src="images/cdgrp.jpg" alt="Career Day photo 2">
+    </div>
+  </div>
+
+  <!-- Cadet -->
+  <div class="story-block">
+    <div class="story-text">
+      <h3>Cadet Training</h3>
+      <p>
+        Through cadet programs, our students build discipline, leadership, and teamwork skills 
+        that prepare them for challenges both inside and outside the classroom.
+      </p>
+    </div>
+    <div class="story-images">
+      <img src="images/srscdt.jpg" alt="Cadet photo 1">
+      <img src="images/fullcdt.jpg" alt="Cadet photo 2">
+    </div>
+  </div>
+
+  <!-- Classroom -->
+  <div class="story-block">
+    <div class="story-text">
+      <h3>Inside the Classroom</h3>
+      <p>
+        Engaging lessons, interactive learning, and passionate teachers make every classroom experience 
+        a place where knowledge comes alive and curiosity is nurtured.
+      </p>
+    </div>
+    <div class="story-images">
+      <img src="images/clsrm.jpg" alt="Classroom photo 1">
+      <img src="images/clsrm2.jpg" alt="Classroom photo 2">
+    </div>
+  </div>
+
+  <!-- Games & Sports -->
+  <div class="story-block">
+    <div class="story-text">
+      <h3>Games & Sports</h3>
+      <p>
+        From football to athletics, sports at Westville foster healthy competition, 
+        teamwork, and the spirit of excellence both on and off the field.
+      </p>
+    </div>
+    <div class="story-images">
+      <img src="images/games.jpg" alt="Sports photo 1">
+      <img src="images/games2.jpg" alt="Sports photo 2">
+    </div>
+  </div>
+
+  <!-- Assembly -->
+  <div class="story-block">
+    <div class="story-text">
+      <h3>Morning Assembly</h3>
+      <p>
+        Our assemblies unite students in reflection, discipline, and shared values. 
+        They set the tone for a purposeful day filled with learning and growth.
+      </p>
+    </div>
+    <div class="story-images">
+      <img src="images/jhs.jpg" alt="Assembly photo 1">
+      <img src="images/assjec.jpg" alt="Assembly photo 2">
+    </div>
+  </div>
+</section>
+
 
   <!-- Academics -->
   <section id="academics">
@@ -377,38 +129,19 @@
     <div class="card-container">
       <div class="card">
         <div class="icon-circle"><i class="fas fa-book"></i></div>
-        <h3>Primary</h3>
+        <h3>Pre-School</h3>
         <p>Strong foundation in literacy, numeracy, and creativity.</p>
       </div>
       <div class="card">
         <div class="icon-circle"><i class="fas fa-flask"></i></div>
-        <h3>Junior High</h3>
+        <h3>Primary</h3>
         <p>Balanced curriculum combining academics and practical skills.</p>
       </div>
       <div class="card">
         <div class="icon-circle"><i class="fas fa-graduation-cap"></i></div>
-        <h3>Senior High</h3>
+        <h3>Junior High</h3>
         <p>Advanced subjects to prepare students for higher education.</p>
       </div>
-    </div>
-  </section>
-
-  <!-- Campus Life -->
-  <section id="campus">
-    <h2>Campus Life</h2>
-    <p>Our vibrant campus offers sports, arts, and extracurricular activities that shape well-rounded students.</p>
-    <div class="scroll-gallery">
-      <img src="images/IMG-20250914-WA0001.jpg" alt="School Image">
-      <img src="images/IMG-20250914-WA0002.jpg" alt="School Image">
-      <img src="images/IMG-20250914-WA0003.jpg" alt="School Image">
-      <img src="images/IMG-20250914-WA0004.jpg" alt="School Image">
-      <img src="images/IMG-20250914-WA0010.jpg" alt="School Image">
-
-      <img src="images/IMG-20250914-WA0005.jpg" alt="School Image">
-      <img src="images/IMG-20250914-WA0006.jpg" alt="School Image">
-      <img src="images/IMG-20250914-WA0007.jpg" alt="School Image">
-      <img src="images/IMG-20250914-WA0008.jpg" alt="School Image">
-      <img src="images/IMG-20250914-WA0009.jpg" alt="School Image">
     </div>
   </section>
 
@@ -433,35 +166,58 @@
     </form>
   </section>
 
+    <!-- Campus Life -->
+  <section id="campus">
+    <h2>Campus Life</h2>
+    <p>
+      Our vibrant campus offers sports, arts, and extracurricular activities
+      that shape well-rounded students.
+    </p>
+    <div class="scroll-gallery">
+      <div class="scroll-track">
+        <img src="images/IMG-20250914-WA0001.jpg" alt="School Image">
+        <img src="images/IMG-20250914-WA0002.jpg" alt="School Image">
+        <img src="images/match.jpg" alt="School Image">
+        <img src="images/IMG-20250914-WA0011.jpg" alt="">
+        <img src="images/elj.jpg" alt="School Image">
+        <img src="images/IMG-20250914-WA0009.jpg" alt="School Image">
+        <img src="images/fb.jpg" alt="">
+        <!-- duplicate set for seamless loop -->
+         <img src="images/IMG-20250914-WA0010.jpg" alt="">
+        <img src="images/IMG-20250914-WA0005.jpg" alt="School Image">
+        <img src="images/dinner.jpg" alt="School Image">
+        <img src="images/assjhs1.jpg" alt="School Image">
+        <img src="images/IMG-20250914-WA0008.jpg" alt="School Image">
+        <img src="images/cdtprec.jpg" alt="">
+        <img src="images/IMG-20250914-WA0010.jpg" alt="School Image">
+      </div>
+    </div>
+  </section>
+
   <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Westville Int'l School. All Rights Reserved.</p>
-    <div class="footer-links">
-      <a href="#about">About</a> | 
-      <a href="#academics">Academics</a> | 
-      <a href="#admissions">Admissions</a> | 
-      <a href="#contact">Contact</a>
-    </div>
-    <div class="social-icons">
+<footer>
+  <p class="copyright">&copy; 2025 Westville Int'l School. All Rights Reserved.</p>
+
+  <div class="footer-links">
+    <span><i class="fas fa-map-marker-alt"></i> <span class="highlight">Loc:</span> Kansaworado, Takoradi <br> <span class="highlight">P.O. Box TD319</span></span>
+    <span><i class="fas fa-phone"></i> <span class="highlight">Tel:</span> +233 54 100 7429 / +233 20 888 5198</span>
+    <span><i class="fas fa-envelope"></i> <span class="highlight">Email:</span> milwestville@gmail.com</span>
+  </div>
+
+  <div class="social-icons">
+    <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook">
       <i class="fab fa-facebook"></i>
+    </a>
+    <a href="https://www.instagram.com/westvilleinternational_school/" target="_blank" aria-label="Instagram">
       <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://twitter.com/" target="_blank" aria-label="Twitter">
       <i class="fab fa-twitter"></i>
-    </div>
-  </footer>
+    </a>
+  </div>
+</footer>
 
-  <script>
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('nav ul');
 
-    menuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-    });
-
-    document.addEventListener('click', (e) => {
-      if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
-        navLinks.classList.remove('active');
-      }
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
